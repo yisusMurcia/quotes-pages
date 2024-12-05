@@ -4,7 +4,7 @@ import Quotes from './components/quotes';
 import './App.css'
 
 function App() {
-  const [logged, setLogged] = useState(false);
+  const [logged, setLogged] = useState(true);
   return (
     <>
     {logged? <Quotes/>: <Login setLogged={setLogged}/>}

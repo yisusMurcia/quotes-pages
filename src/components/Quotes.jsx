@@ -2,12 +2,36 @@ import React, {useState} from 'react';
 import getQuotes from '../api/getQuote.js';
 
 function Quotes(){
-    const [quotes, getQuote] = useState("")
+    const [quotes, setQuotes] = useState([]);
+    const [quoteId, setQuoteId] = useState(-1);
+
     async function saveQuote(){
-        getQuote(await getQuotes())
-        console.log(quotes)
+        let fetchQuotes = await getQuotes();
+        if(quotes != fetchQuotes){
+            setQuotes(await getQuotes());
+        }
     }
-    saveQuote();
+
+    saveQuote()
+
+    function addAuthors(selectEl){
+        const authors = []
+        for(let obj of quotes){
+            const authorOption = document.createElement("option");
+            authorOption.value = obj.id;
+
+            const author = obj.author;
+            if(authors.includes(author)){
+                let times = authors.filter(name=> name == author);
+                authorOption.textContent = author + ` ${times.length}`;
+            }else{
+                authorOption.textContent = author;
+            }
+
+            authors.push(author)
+            selectEl.appendChild(authorOption);
+        }
+    }
     return (
         <>
             <header>
@@ -19,12 +43,13 @@ function Quotes(){
                 <section>
                     <div>
                         <label htmlFor="author">Selecciona el autor</label>
-                        <select name="author" id="author">
+                        <select name="author" id="author" onFocus={e=>addAuthors(e.target)} onClick={e=>{
+                            setQuoteId(e.target.selectedIndex)
+                            }}>
                             <option value="-1">Selecciona el autor</option>
                         </select>
                     </div>
                     <div id="quote-div">
-                        <p>La frase aparecerá aquí</p>
                     </div>
                 </section>
             </main>
