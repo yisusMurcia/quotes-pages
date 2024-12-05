@@ -1,12 +1,14 @@
-import { useState } from 'react'
-import Login from './components/Login'
+import {useState} from 'react';
+import Login from './components/Login';
+import Quotes from './components/quotes';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [logged, setLogged] = useState(false);
   return (
-    <Login />
+    <>
+    {logged? <Quotes/>: <Login setLogged={setLogged}/>}
+    </>
   )
 }
 

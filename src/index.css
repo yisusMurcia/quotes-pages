@@ -102,3 +102,51 @@ input:focus{
 input::placeholder{
   color: #105d5f;
 }
+
+hr{
+  border-color: #ffda45;
+  box-shadow: 0 0.2rem 0.7rem;
+  margin: 0.7rem 0.2rem;
+}
+
+main{
+  margin: 0.2rem;
+}
+
+section{
+  display: flex;
+  flex-direction: column;
+  background-color: #481a00cc;
+  padding: 0.4rem;
+  border-radius: 0.4rem;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+select{
+  background-color: #e37d0096;
+  border-radius: 0.2rem;
+  font-family: "Indie Flower";
+  color: #f1f1f1;
+}
+
+option{
+  color: #1f1f1f;
+}
+
+option:hover{
+  background-color: #e37d00 !important;
+}
+
+.quote{
+  background-color: #481a00;
+  border: solid 0.15rem #ffa500;
+  padding: 0.1rem;
+  border-radius: 0.4rem;
+}
+
+.fa-solid{
+  padding: 0.4rem;
+  margin: 0.2rem;
+  border-radius: 0.4rem;
+}

@@ -1,17 +1,20 @@
 import React, {useState} from 'react';
 import login from '../api/login.js';
 
-function Login(){
+function Login({setLogged}){
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
     async function handleLogin(e){
         e.preventDefault();
         try{
             const dataRes = await login(user, password)
+            setLogged(true)
             console.log("Access token" + dataRes.data.accessToken);
             console.log("Refresh token" + dataRes.data.refreshToken);
+            alert("Welcome: "+ dataRes.data.username);
         }catch{
             alert("usuario o contraseña incorrecta")
+            setLogged(false);
         }
     }
     return (
