@@ -19,17 +19,20 @@ function Login({setLogged}){
     }
     return (
         <form onSubmit={e=> handleLogin(e)}>
-        <h1>Log in</h1>
-        <div className="info-gap">
-            <label htmlFor="user"><i className="fa-solid fa-envelope"></i></label>
-            <input type="name" name="name" id="user" placeholder="user name" onChange={e => setUser(e.target.value)}></input>
-        </div>
-        <div className="info-gap">
-            <label htmlFor="password"><i className="fa-solid fa-lock"></i></label>
-            <input type="password" name="password" id="password" placeholder="password" onChange={e => setPassword(e.target.value)}></input>    
-        </div>
-        <button type="submit">Ingresar</button>
-    </form>
+            <h1>Log in</h1>
+            <div>
+                <div className="info-gap">
+                    <label htmlFor="user"><i className="fa-solid fa-envelope"></i></label>
+                    <input type="name" name="name" id="user" placeholder="user name" onChange={e => setUser(e.target.value)}></input>
+                </div>
+                <div className="info-gap">
+                    <label htmlFor="password"><i className="fa-solid fa-lock"></i></label>
+                    <input type="password" name="password" id="password" placeholder="password" onChange={e => setPassword(e.target.value)}></input>    
+                </div>
+
+            </div>
+            <button type="submit">Ingresar</button>
+        </form>
     );
 }
 

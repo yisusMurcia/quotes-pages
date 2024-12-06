@@ -1,37 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import getQuotes from '../api/getQuote.js';
+import SelectAuthor from './SelectAuthor.jsx';
 
 function Quotes(){
-    const [quotes, setQuotes] = useState([]);
-    const [quoteId, setQuoteId] = useState(-1);
-
-    async function saveQuote(){
-        let fetchQuotes = await getQuotes();
-        if(quotes != fetchQuotes){
-            setQuotes(await getQuotes());
-        }
-    }
-
-    saveQuote()
-
-    function addAuthors(selectEl){
-        const authors = []
-        for(let obj of quotes){
-            const authorOption = document.createElement("option");
-            authorOption.value = obj.id;
-
-            const author = obj.author;
-            if(authors.includes(author)){
-                let times = authors.filter(name=> name == author);
-                authorOption.textContent = author + ` ${times.length}`;
-            }else{
-                authorOption.textContent = author;
-            }
-
-            authors.push(author)
-            selectEl.appendChild(authorOption);
-        }
-    }
+    const [quote, setQuote] = useState("Selecciona un autor para ver la frase");
     return (
         <>
             <header>
@@ -41,16 +13,8 @@ function Quotes(){
                 <p>Selecciona al autor, lee la frase</p>
                 <hr></hr>
                 <section>
-                    <div>
-                        <label htmlFor="author">Selecciona el autor</label>
-                        <select name="author" id="author" onFocus={e=>addAuthors(e.target)} onClick={e=>{
-                            setQuoteId(e.target.selectedIndex)
-                            }}>
-                            <option value="-1">Selecciona el autor</option>
-                        </select>
-                    </div>
-                    <div id="quote-div">
-                    </div>
+                    <SelectAuthor saveQuote= {setQuote}/>
+                    <p>{quote}</p>
                 </section>
             </main>
         </>
