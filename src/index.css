@@ -47,6 +47,7 @@ label{
 }
 
 button{
+  width: 100%;
   background-color: #1c1c1c;
   color: #0b8b8b;
   font-family: "Playwrite DE Grund", cursive;
@@ -116,7 +117,7 @@ main{
 section{
   display: flex;
   flex-direction: column;
-  background-color: #124f4fcc;
+  background-color: #0d0e0ec7;
   padding: 0.4rem;
   border-radius: 0.4rem;
   align-items: center;
@@ -124,9 +125,11 @@ section{
 }
 
 select{
-  background-color: #0b8b8b;
-  border-radius: 0.2rem;
+  background-color: #0b8b8b85;
+  border-radius: 0.4rem;
+  border: none;
   font-family: "Indie Flower";
+  padding: 0.2rem;
   color: #f1f1f1;
 }
 

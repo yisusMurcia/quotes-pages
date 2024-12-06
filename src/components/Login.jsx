@@ -22,7 +22,7 @@ function Login({setLogged}){
             <h1>Log in</h1>
             <div>
                 <div className="info-gap">
-                    <label htmlFor="user"><i className="fa-solid fa-envelope"></i></label>
+                    <label htmlFor="user"><i className="fa-solid fa-circle-user"></i></label>
                     <input type="name" name="name" id="user" placeholder="user name" onChange={e => setUser(e.target.value)}></input>
                 </div>
                 <div className="info-gap">
@@ -31,7 +31,10 @@ function Login({setLogged}){
                 </div>
 
             </div>
-            <button type="submit">Ingresar</button>
+            <button type="submit">
+                <i className="fa-solid fa-paper-plane"></i>
+                Ingresar
+            </button>
         </form>
     );
 }
