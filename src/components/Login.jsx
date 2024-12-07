@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import login from '../api/login.js';
 
-function Login({setLogged}){
+function Login({setLogged, setUserName}){
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
     async function handleLogin(e){
@@ -11,10 +11,12 @@ function Login({setLogged}){
             setLogged(true)
             console.log("Access token" + dataRes.data.accessToken);
             console.log("Refresh token" + dataRes.data.refreshToken);
-            alert("Welcome: "+ dataRes.data.username);
+            setUserName(dataRes.data.firstName);
+            alert("Bienvenido: "+ dataRes.data.firstName);
         }catch{
             alert("usuario o contraseña incorrecta")
             setLogged(false);
+            setUserName("Desconocido")
         }
     }
     return (
@@ -31,7 +33,7 @@ function Login({setLogged}){
                 </div>
 
             </div>
-            <button type="submit">
+            <button type="submit" className='submit-button'>
                 <i className="fa-solid fa-paper-plane"></i>
                 Ingresar
             </button>

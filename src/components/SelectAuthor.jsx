@@ -21,7 +21,6 @@ const SelectAuthor = ({saveQuote}) => {
         for(let quoteObj of quotes){
             if(quoteObj.id == id){
                 saveQuote(quoteObj.quote);
-                console.log(quoteObj);
                 break;
             }
         }
