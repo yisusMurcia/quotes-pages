@@ -9,8 +9,6 @@ function Login({setLogged, setUserName}){
         try{
             const dataRes = await login(user, password)
             setLogged(true)
-            console.log("Access token" + dataRes.data.accessToken);
-            console.log("Refresh token" + dataRes.data.refreshToken);
             setUserName(dataRes.data.firstName);
             alert("Bienvenido: "+ dataRes.data.firstName);
         }catch{

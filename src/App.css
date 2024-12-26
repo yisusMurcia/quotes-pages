@@ -17,6 +17,18 @@ body{
     color: #f0fdfb;
 }
 
+header{
+    background-color: #1a1a1ace;
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+    padding: 0.8rem;
+}
+
+header>h1{
+    text-align: center;
+    color: #0b8b8b;
+}
+
 
 h1{
     font-family: "Righteous", sans-serif;

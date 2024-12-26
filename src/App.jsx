@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import Login from './components/Login';
 import Quotes from './components/quotes';
-import MenuAppBar from './components/menuAppBar';
+import HeaderEl from './components/headerEl';
 import './App.css';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
   const [logged, setLogged] = useState(false);
   return (
     <>
-    {logged?<><MenuAppBar userName = {userName}/> <Quotes/> </>: <Login setLogged={setLogged} setUserName = {setUserName}/>}
+    {logged?<> <HeaderEl userName = {userName}/> <Quotes/> </>: <Login setLogged={setLogged} setUserName = {setUserName}/>}
     </>
   )
 }
